@@ -42,28 +42,28 @@ GeoAPP es una solución integral que permite a los usuarios capturar ubicaciones
 - **Docker + Nginx** - Contenedorización y servidor web
 - **Railway** - Plataforma de despliegue
 
-## 📱 Funcionalidades
+##  Funcionalidades
 
 ### Aplicación Móvil
-- ✅ Captura de ubicación actual con GPS
-- ✅ Geocodificación inversa (coordenadas → dirección)
-- ✅ Navegación entre pantallas (Home, Mapa, Registros)
-- ✅ Visualización de registros históricos
-- ✅ Interfaz nativa para Android e iOS
+-  Captura de ubicación actual con GPS
+-  Geocodificación inversa (coordenadas → dirección)
+-  Navegación entre pantallas (Home, Mapa, Registros)
+-  Visualización de registros históricos
+-  Interfaz nativa para Android e iOS
 
 ### Backend API
-- ✅ API RESTful para gestión de ubicaciones
-- ✅ Filtrado por fechas con soporte de zona horaria
-- ✅ Almacenamiento en PostgreSQL
-- ✅ Configuración CORS para múltiples orígenes
-- ✅ Desplegado en Railway con dominio personalizado
+-  API RESTful para gestión de ubicaciones
+-  Filtrado por fechas con soporte de zona horaria
+-  Almacenamiento en PostgreSQL
+-  Configuración CORS para múltiples orígenes
+-  Desplegado en Railway con dominio personalizado
 
 ### Frontend Web
-- ✅ Visualización de ubicaciones en tabla
-- ✅ Filtros por fecha (formato Bogotá UTC-5)
-- ✅ Interfaz responsive con Element Plus
-- ✅ Paginación y ordenamiento
-- ✅ Desplegado en Railway
+-  Visualización de ubicaciones en tabla
+-  Filtros por fecha (formato Bogotá UTC-5)
+-  Interfaz responsive con Element Plus
+-  Paginación y ordenamiento
+-  Desplegado en Railway
 
 ## 🗄️ Estructura de la Base de Datos
 
@@ -77,7 +77,7 @@ Ver [diagrama detallado](./database/database_diagram.md) y [script de creación]
 - `device_info` - Información del dispositivo (JSONB)
 - `created_at` / `updated_at` - Timestamps automáticos
 
-## 🚦 Cómo Probar la Plataforma
+##  Cómo Probar la Plataforma
 
 ### 1. Backend API (Desplegado)
 **URL:** https://geoapp-production.up.railway.app
@@ -91,11 +91,15 @@ GET https://geoapp-production.up.railway.app/captures
 POST https://geoapp-production.up.railway.app/captures
 Content-Type: application/json
 {
-  "latitude": 4.7110,
-  "longitude": -74.0721,
-  "address": "Bogotá, Colombia",
-  "device_info": {"platform": "android"}
+  "capture": {
+    "latitude": 19.4326,
+    "longitude": -99.1332,
+    "captured_at": "2025-07-26T18:00:00Z",
+    "device_brand": "Samsung",
+    "device_model": "Galaxy S20"
+  }
 }
+
 
 # Filtrar por fecha
 GET https://geoapp-production.up.railway.app/captures?date=2025-07-28
@@ -117,7 +121,7 @@ GET https://geoapp-production.up.railway.app/captures?date=2025-07-28
 3. Permitir instalación de fuentes desconocidas
 4. Abrir la app y permitir permisos de ubicación
 
-## 💻 Ejecución Local del Proyecto Completo
+##  Ejecución Local del Proyecto Completo
 
 ### Prerrequisitos
 - **Node.js** 18+ y npm
@@ -195,7 +199,7 @@ npx expo start
 ### 5. URLs Locales
 - **Backend API**: http://localhost:3000
 - **Frontend Web**: http://localhost:8080  
-- **Mobile App**: Expo DevTools en http://localhost:19000
+- **Mobile App**: Expo DevTools
 
 ### Build Personalizado con EAS (Opcional)
 ```bash
@@ -209,7 +213,7 @@ eas build:configure
 eas build --profile preview --platform android
 ```
 
-## 📂 Estructura del Proyecto
+##  Estructura del Proyecto
 
 ```
 GeoAPP/

@@ -115,12 +115,23 @@ GET https://geoapp-production.up.railway.app/captures?date=2025-07-28
 - Formato de fechas en zona horaria de Bogotá
 - Interfaz responsive para móvil y desktop
 
-### 3. Aplicación Móvil
+### 3. Aplicación Móvil (APK Android)
 
-1. Descargar APK desde las releases de GitHub
-2. Instalar en dispositivo Android
-3. Permitir instalación de fuentes desconocidas
-4. Abrir la app y permitir permisos de ubicación
+**📱 Descarga Directa del APK:**
+```
+https://expo.dev/artifacts/eas/7A5eMb7gjEZ8ZAnzL7Lasx.apk
+```
+
+**Instrucciones de instalación:**
+1. **Descargar APK** desde el enlace anterior en tu dispositivo Android
+2. **Permitir instalación** de aplicaciones de fuentes desconocidas:
+   - Ve a `Configuración > Seguridad > Fuentes desconocidas` (Android 7 y anteriores)
+   - O `Configuración > Aplicaciones > Acceso especial > Instalar aplicaciones desconocidas` (Android 8+)
+3. **Instalar** el archivo APK descargado
+4. **Abrir la aplicación** y permitir permisos de ubicación cuando se solicite
+5. **¡Listo!** La app comenzará a capturar tu ubicación y se podrá utilizar las diferentes funcionalidades.
+
+
 
 ##  Ejecución Local del Proyecto Completo
 
@@ -200,7 +211,7 @@ npx expo start
 ### 5. URLs Locales
 - **Backend API**: http://localhost:3000
 - **Frontend Web**: http://localhost:8080  
-- **Mobile App**: Expo DevTools
+- **Mobile App**: Expo DevTools 
 
 ### Build Personalizado con EAS (Opcional)
 ```bash

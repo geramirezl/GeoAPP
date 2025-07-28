@@ -71,10 +71,11 @@ Ver [diagrama detallado](./database/database_diagram.md) y [script de creación]
 
 **Tabla principal: `captures`**
 - `id` - Identificador único
-- `latitude` - Latitud (DECIMAL 10,8)
-- `longitude` - Longitud (DECIMAL 11,8)
-- `address` - Dirección geocodificada
-- `device_info` - Información del dispositivo (JSONB)
+- `latitude` - Latitud (DECIMAL)
+- `longitude` - Longitud (DECIMAL)
+- `captured_at` - Fecha y hora de captura (TIMESTAMP)
+- `device_brand` - Marca del dispositivo (VARCHAR)
+- `device_model` - Modelo del dispositivo (VARCHAR)
 - `created_at` / `updated_at` - Timestamps automáticos
 
 ##  Cómo Probar la Plataforma

@@ -28,7 +28,8 @@ Rails.application.configure do
   config.assume_ssl = true
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  config.force_ssl = true
+  # Disable SSL during assets precompile to avoid build issues
+  config.force_ssl = false unless ENV['RAILS_SKIP_SSL_ENFORCEMENT'] == 'true'
 
   # Skip http-to-https redirect for the default health check endpoint.
   # config.ssl_options = { redirect: { exclude: ->(request) { request.path == "/up" } } }

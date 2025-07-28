@@ -51,7 +51,11 @@ RUN chmod +x ./bin/setup
 RUN bundle exec bootsnap precompile app/ lib/
 
 # Precompiling assets for production without requiring secret RAILS_MASTER_KEY
-RUN SECRET_KEY_BASE_DUMMY=1 bundle exec rails assets:precompile
+RUN SECRET_KEY_BASE=6ED8EE7C8D8EA2D0557D3CE508C3138ACA4B4AB3F3FCA101FCA7657AEB84E49839992B5593FEC2BECC4955C91060B767713FD7BFFD719509 \
+    RAILS_ENV=production \
+    RAILS_SERVE_STATIC_FILES=true \
+    RAILS_SKIP_SSL_ENFORCEMENT=true \
+    bundle exec rails assets:precompile --trace
 
 
 

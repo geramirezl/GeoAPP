@@ -19,9 +19,16 @@ class CapturesController < ApplicationController
         # Filtrar por rango de fechas si se proveen parámetros
         if params[:start_date].present? && params[:end_date].present?
             begin
-                start_date = Date.parse(params[:start_date])
-                end_date = Date.parse(params[:end_date])
-                captures = captures.where(captured_at: start_date.beginning_of_day..end_date.end_of_day)
+                # Parsear las fechas en zona horaria de Bogotá
+                bogota_tz = ActiveSupport::TimeZone.new('America/Bogota')
+                start_date = bogota_tz.parse("#{params[:start_date]} 00:00:00")
+                end_date = bogota_tz.parse("#{params[:end_date]} 23:59:59")
+                
+                # Convertir a UTC para la consulta en base de datos
+                start_utc = start_date.utc
+                end_utc = end_date.utc
+                
+                captures = captures.where(captured_at: start_utc..end_utc)
             rescue ArgumentError
                 return render json: { error: "Invalid date format" }, status: :bad_request
             end

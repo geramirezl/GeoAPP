@@ -1,4 +1,4 @@
-# micro-frontend-captures
+# micro-frontend-captures Geo APP
 
 ## Project setup
 ```

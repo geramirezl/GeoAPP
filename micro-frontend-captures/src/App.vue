@@ -49,7 +49,10 @@
       >
         <el-table-column prop="latitude" label="📍 Latitud"  />
         <el-table-column prop="longitude" label="📍 Longitud"  />
-        <el-table-column prop="captured_at" label="🕐 Fecha y Hora" >
+        <el-table-column label="🕐 Fecha y Hora" >
+          <template #default="scope">
+            {{ formatDate(scope.row.captured_at) }}
+          </template>
         </el-table-column>
         <el-table-column prop="device_brand" label="📱 Marca"  />
         <el-table-column prop="device_model" label="📲 Modelo"  />
@@ -98,11 +101,30 @@ export default {
       fetchCaptures()
     }
 
+    // Formatear fecha para mostrar en zona horaria de Bogotá
+    const formatDate = (dateString) => {
+      const date = new Date(dateString)
+      
+      // Crear opciones para formato en zona horaria de Bogotá
+      const options = {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        timeZone: 'America/Bogota',
+        hour12: false // Formato 24 horas
+      }
+      
+      return date.toLocaleString('es-CO', options)
+    }
+
     onMounted(() => {
       fetchCaptures()
     })
 
-    return { captures, loading, filters, fetchCaptures, resetFilter }
+    return { captures, loading, filters, fetchCaptures, resetFilter, formatDate }
   },
 }
 </script>

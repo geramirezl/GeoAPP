@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "GeoAPP",
-    "slug": "GeoAPP",
+    "slug": "geoapp-ubicaciones-2025",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -20,10 +20,16 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.gaenrale.geoappubicaciones2025"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "7aa7a177-bc8b-4ffc-97a0-d6b65827c988"
+      }
     }
   }
 }

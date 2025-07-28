@@ -84,6 +84,7 @@ test:
 production:
   primary: &primary_production
     <<: *default
+    url: <%= ENV['DATABASE_URL'] %>
     database: backend_api_production
     username: postgres
     password: <%= ENV["BACKEND_API_DATABASE_PASSWORD"] %>

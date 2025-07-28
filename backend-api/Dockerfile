@@ -42,11 +42,16 @@ RUN bundle install && \
 # Copy application code
 COPY . .
 
+# Set executable permissions for bin files
+RUN chmod +x ./bin/rails
+RUN chmod +x ./bin/rake
+RUN chmod +x ./bin/setup
+
 # Precompile bootsnap code for faster boot times
 RUN bundle exec bootsnap precompile app/ lib/
 
 # Precompiling assets for production without requiring secret RAILS_MASTER_KEY
-RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
+RUN SECRET_KEY_BASE_DUMMY=1 bundle exec rails assets:precompile
 
 
 

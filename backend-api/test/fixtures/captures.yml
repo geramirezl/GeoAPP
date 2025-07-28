@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  latitude: 9.99
+  longitude: 9.99
+  captured_at: 2025-07-27 17:57:35
+  device_brand: MyString
+  device_model: MyString
+
+two:
+  latitude: 9.99
+  longitude: 9.99
+  captured_at: 2025-07-27 17:57:35
+  device_brand: MyString
+  device_model: MyString

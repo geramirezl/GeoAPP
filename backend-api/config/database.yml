@@ -17,6 +17,9 @@ default: &default
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
+  username: postgres
+  password: admin456
+  host: localhost
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 
@@ -82,7 +85,7 @@ production:
   primary: &primary_production
     <<: *default
     database: backend_api_production
-    username: gaen
+    username: postgres
     password: <%= ENV["BACKEND_API_DATABASE_PASSWORD"] %>
   cache:
     <<: *primary_production
